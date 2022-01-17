@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -10,5 +11,9 @@ class Movie(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.rating}%"
+
+    def get_url(self):
+        return reverse('movie-detail', args=[self.id])
+
 
 # from movie_app.models import Movie
